@@ -8,17 +8,17 @@
 
 ## Project summary
 
-I am an Erasmus student, and I often travel around Europe at weekends with people from my student residence. We use Tricount to keep track of shared costs. At the moment, we can enter the total price and divide it between people, but this does not account for who bought or used each item. Someone who bought only a few things can end up paying the same as someone who bought much more.
+I am an Erasmus student, and I often travel around Europe on weekends with people from my student residence. We use Tricount to keep track of shared costs. At the moment, we can enter the total price and split it among everyone, but this doesn't account for who bought or used each item. Someone who bought only a few things can end up paying the same as someone who bought much more.
 
-For this project, I want to build a receipt-reading prototype that can recognize the text on a shopping receipt, especially the item names, quantities, units, and prices. The computer vision part will be the main contribution: I will implement and adapt a deep learning OCR method, then evaluate how well it reads receipt text on a public dataset. If the OCR output is reliable enough, a later stage can organize the recognized text into item rows. Users will review the rows and assign items, or parts of items, to people in the group. The app will calculate each person's share from those assignments instead of dividing the receipt total equally. The model cannot know who consumed a product, so participants will make those assignments themselves.
+For this project, I want to build a receipt-reading prototype that can recognize the text on a shopping receipt, especially the item names, quantities, units, and prices. The computer vision component will be the main contribution: I will implement and adapt a deep learning OCR method, then evaluate its performance on a public receipt dataset. If the OCR output is reliable enough, a later stage can organize the recognized text into item rows. Users will review the rows and assign items, or parts of items, to people in the group. The app will calculate each person's share from those assignments instead of dividing the receipt total equally. The model cannot know who consumed a product, so participants will make those assignments themselves.
 
-My main goal is to develop and evaluate a computer vision method for OCR on receipt images. As a secondary extension, if time and computing resources allow, I will use a small language model to turn the recognized text into structured item information. I will also try to improve a recent published OCR result on KORIE, but beating it is an experiment rather than a guaranteed outcome. If time allows, I would like to test the finished system on a small set of my own receipt photos.
+My main goal is to develop and evaluate a computer vision method for OCR on receipt images. As a secondary extension, if time and computing resources allow, I will use a small language model to turn the recognized text into structured item information. I will also try to improve a recently published OCR result on KORIE, but beating it is an experiment rather than a guaranteed outcome. If time allows, I would like to test the finished system on a small set of my own receipt photos.
 
 ## Topic and project type
 
 - **Topic:** Computer vision and deep learning for text detection and OCR on receipts.
 - **Main project type:** Bring your own method. I will implement and adapt an OCR neural network for receipt text, and evaluate it on an existing public dataset.
-- **Secondary objective:** Try to improve a recent published OCR baseline on the same dataset, using a comparable test split and evaluation protocol.
+- **Secondary objective:** Try to improve a recently published OCR baseline on the same dataset, using a comparable test split and evaluation protocol.
 - **Optional extension:** Convert recognized text into structured item rows with a small language model, then connect the result to a cost-splitting demo.
 - **Optional test set:** Test the pipeline on a small, separately collected set of receipt photos.
 
@@ -30,7 +30,7 @@ The main research work is the OCR method and its evaluation. Structured extracti
 
 I plan to use [KORIE](https://github.com/MahmoudSalah/KORIE), a public Korean retail receipt dataset introduced in 2026. It contains receipt images, OCR text crops and transcriptions, and structured annotations for receipt fields and item lines. The paper describes receipt-level training, validation, and test splits, which helps keep different crops or lines from the same receipt out of more than one split.
 
-The dataset is relatively small: the paper reports 748 receipts, while the repository README reports 774. The data are provided through external download links, so I will first check that I can access the required files and that they match the paper's annotation format. KORIE receipts are Korean, not European, and the dataset is limited in size. It is suitable for developing and evaluating receipt OCR, but results on it will not prove that the model works equally well on other European receipts.
+The dataset is relatively small: the paper reports 748 receipts, while the repository README reports 774. The data are provided via external download links, so I will first confirm I can access the required files and that they match the paper's annotation format. KORIE receipts are Korean, not European, and the dataset is limited in size. It is suitable for developing and evaluating receipt OCR, but results on it will not prove that the model works equally well on other European receipts.
 
 The authors report the following baselines:
 
